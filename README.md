@@ -1,70 +1,86 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ecipeapp@0.1.0 test /projects/challenge
 
-## Available Scripts
+> rm -rf ./test-report.xml && CI=true ./node_modules/.bin/react-scripts test --verbose --env=jsdom --testResultsProcessor ./node_modules/jest-junit-reporter
 
-In the project directory, you can run:
+FAIL src/App.test.js
 
-### `npm start`
+  testing App component
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    ✓ Header content (25ms)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    ✓ Recipe container (8ms)
 
-### `npm test`
+    ✕ Add Recipe (50ms)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ✓ pop and pop out Modal (12ms)
 
-### `npm run build`
+    ✕ display recipe modal (81ms)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ✓ Search Bar (7ms)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  ● testing App component › Add Recipe
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    TypeError: Cannot read property 'ingredients' of undefined
 
-### `npm run eject`
+      70 |     });
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+      71 |     addBuuton.simulate("click");
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    > 72 |     expect(component.state().recipes[6].ingredients).toStrictEqual([
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+         |            ^
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+      73 |       "Bread slices",
 
-## Learn More
+      74 |       "egg",
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+      75 |       "milk",
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+      at Object.test (src/App.test.js:72:12)
 
-### Code Splitting
+  ● testing App component › display recipe modal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    TypeError: Cannot read property 'target' of undefined
 
-### Analyzing the Bundle Size
+      63 |     this.setState({ mode: true });
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+      64 |
 
-### Making a Progressive Web App
+    > 65 |     const res = i.target.parentElement.id;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+         |                   ^
 
-### Advanced Configuration
+      66 |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+      67 |     const reci = this.state.recipes[res];
 
-### Deployment
+      68 |     this.setState({
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+      at App.handleView.i (src/App.js:65:19)
 
-### `npm run build` fails to minify
+      at fn (node_modules/enzyme-adapter-react-16/src/ReactSixteenAdapter.js:801:20)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+      at withSetStateAllowed (node_modules/enzyme-adapter-utils/src/Utils.js:100:18)
+
+      at Object.simulateEvent (node_modules/enzyme-adapter-react-16/src/ReactSixteenAdapter.js:797:11)
+
+      at ShallowWrapper.call (node_modules/enzyme/src/ShallowWrapper.js:1134:7)
+
+      at ShallowWrapper.single (node_modules/enzyme/src/ShallowWrapper.js:1654:21)
+
+      at ShallowWrapper.simulate (node_modules/enzyme/src/ShallowWrapper.js:1133:17)
+
+      at Object.test (src/App.test.js:104:20)
+
+Test Suites: 1 failed, 1 total
+
+Tests:       2 failed, 4 passed, 6 total
+
+Snapshots:   0 total
+
+Time:        2.545s
+
+Ran all test suites.
+
+npm ERR! Test failed.  See above for more details.
