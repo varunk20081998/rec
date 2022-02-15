@@ -9,6 +9,8 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "start": "PORT=8000 react-scripts start --disable-host-check",
     "build": "react-scripts build",
     "test": "rm -rf ./test-report.xml && CI=true ./node_modules/.bin/react-scripts test --verbose --env=jsdom --testResultsProcessor ./node_modules/jest-junit-reporter",
